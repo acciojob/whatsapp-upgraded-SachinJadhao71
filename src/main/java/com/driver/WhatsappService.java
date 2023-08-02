@@ -1,15 +1,15 @@
 package com.driver;
 
-import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 @Service
 public class WhatsappService {
+    WhatsappRepository whatsappRepository=new WhatsappRepository();
 
-    WhatsappRepository whatsappRepository = new WhatsappRepository();
-    public String createUser(String name, String mobile) throws Exception{
+    public String createUser(String name, String mobile) throws Exception {
         return whatsappRepository.createUser(name,mobile);
     }
 
@@ -25,15 +25,16 @@ public class WhatsappService {
         return whatsappRepository.sendMessage(message,sender,group);
     }
 
-    public String changeAdmin(User approver, User user, Group group) throws Exception{
+    public String changeAdmin(User approver, User user, Group group) throws Exception {
         return whatsappRepository.changeAdmin(approver,user,group);
     }
 
-    public int removeUser(User user) throws Exception{
+    public int removeUser(User user) throws Exception {
         return whatsappRepository.removeUser(user);
     }
 
-    public String findMessage(Date start, Date end, int k) throws Exception{
-        return whatsappRepository.findMessage(start,end,k);
+    public String findMessage(Date start, Date end, int k) {
+        return null;
     }
+
 }
